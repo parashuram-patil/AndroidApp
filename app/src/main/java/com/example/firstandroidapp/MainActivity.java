@@ -13,12 +13,20 @@ import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
 import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.chart.common.dataentry.ValueDataEntry;
+import com.anychart.charts.Cartesian;
 import com.anychart.charts.Pie;
+import com.anychart.charts.Waterfall;
+import com.anychart.core.Chart;
+import com.anychart.core.cartesian.series.Column;
+import com.anychart.enums.Anchor;
+import com.anychart.enums.HoverMode;
+import com.anychart.enums.Position;
+import com.anychart.enums.TooltipPositionMode;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Pie pie = AnyChart.pie();
+        /*Pie pie = AnyChart.pie();
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new ValueDataEntry("John", 10000));
@@ -46,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         pie.data(data);
 
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
-        anyChartView.setChart(pie);
+        anyChartView.setChart(pie);*/
     }
 
     @Override
@@ -69,5 +77,74 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.pieChartButton:
+                Pie pie = getPie();
+                populateChart(pie);
+                break;
+
+            case R.id.columnChartButton:
+                Cartesian cartesian = getCartesian();
+                populateChart(cartesian);
+                break;
+
+            case R.id.waterfallChartButton:
+                Waterfall waterfall = AnyChart.waterfall();
+                populateChart(waterfall);
+        }
+    }
+
+    private Cartesian getCartesian() {
+        Cartesian cartesian = AnyChart.column();
+        List<DataEntry> columData = new ArrayList<>();
+        columData.add(new ValueDataEntry("Rouge", 80540));
+        columData.add(new ValueDataEntry("Foundation", 94190));
+        columData.add(new ValueDataEntry("Mascara", 102610));
+        columData.add(new ValueDataEntry("Lip gloss", 110430));
+        columData.add(new ValueDataEntry("Lipstick", 128000));
+
+        Column column = cartesian.column(columData);
+        column.tooltip()
+                .titleFormat("{%X}")
+                .position(Position.CENTER_BOTTOM)
+                .anchor(Anchor.CENTER_BOTTOM)
+                .offsetX(0d)
+                .offsetY(5d)
+                .format("${%Value}{groupsSeparator: }");
+
+        cartesian.animation(true);
+        cartesian.title("Top 10 Cosmetic Products by Revenue");
+
+        cartesian.yScale().minimum(0d);
+
+        cartesian.yAxis(0).labels().format("${%Value}{groupsSeparator: }");
+
+        cartesian.tooltip().positionMode(TooltipPositionMode.POINT);
+        cartesian.interactivity().hoverMode(HoverMode.BY_X);
+
+        cartesian.xAxis(0).title("Product");
+        cartesian.yAxis(0).title("Revenue");
+        return cartesian;
+    }
+
+    private Pie getPie() {
+        Pie pie = AnyChart.pie();
+
+        List<DataEntry> pieData = new ArrayList<>();
+        pieData.add(new ValueDataEntry("John", 10000));
+        pieData.add(new ValueDataEntry("Jake", 12000));
+        pieData.add(new ValueDataEntry("Peter", 18000));
+
+        pie.data(pieData);
+        return pie;
+    }
+
+    private void populateChart(Chart chart) {
+        AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
+        anyChartView.setChart(chart);
     }
 }
