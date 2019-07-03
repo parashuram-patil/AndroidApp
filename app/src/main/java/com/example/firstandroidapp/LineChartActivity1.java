@@ -9,6 +9,7 @@ import android.graphics.DashPathEffect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Menu;
@@ -113,7 +114,9 @@ public class LineChartActivity1 extends DemoBase implements OnSeekBarChangeListe
             xAxis = chart.getXAxis();
 
             // vertical grid lines
-            xAxis.enableGridDashedLine(10f, 10f, 0f);
+            //xAxis.enableGridDashedLine(10f, 10f, 0f);
+
+            xAxis.setSpaceMin(1);
         }
 
         YAxis yAxis;
@@ -124,16 +127,18 @@ public class LineChartActivity1 extends DemoBase implements OnSeekBarChangeListe
             chart.getAxisRight().setEnabled(false);
 
             // horizontal grid lines
-            yAxis.enableGridDashedLine(10f, 10f, 0f);
+            //yAxis.enableGridDashedLine(10f, 10f, 0f);
+            yAxis.setDrawGridLines(false);
 
             // axis range
             yAxis.setAxisMaximum(200f);
             yAxis.setAxisMinimum(-50f);
+            yAxis.setEnabled(false);
         }
 
 
         {   // // Create Limit Lines // //
-            LimitLine llXAxis = new LimitLine(9f, "Index 10");
+            /*LimitLine llXAxis = new LimitLine(9f, "Index 10");
             llXAxis.setLineWidth(4f);
             llXAxis.enableDashedLine(10f, 10f, 0f);
             llXAxis.setLabelPosition(LimitLabelPosition.RIGHT_BOTTOM);
@@ -152,15 +157,15 @@ public class LineChartActivity1 extends DemoBase implements OnSeekBarChangeListe
             ll2.enableDashedLine(10f, 10f, 0f);
             ll2.setLabelPosition(LimitLabelPosition.RIGHT_BOTTOM);
             ll2.setTextSize(10f);
-            ll2.setTypeface(tfRegular);
+            ll2.setTypeface(tfRegular);*/
 
             // draw limit lines behind data instead of on top
-            yAxis.setDrawLimitLinesBehindData(true);
-            xAxis.setDrawLimitLinesBehindData(true);
+            //yAxis.setDrawLimitLinesBehindData(true);
+            //xAxis.setDrawLimitLinesBehindData(true);
 
             // add limit lines
-            yAxis.addLimitLine(ll1);
-            yAxis.addLimitLine(ll2);
+            //yAxis.addLimitLine(ll1);
+            //yAxis.addLimitLine(ll2);
             //xAxis.addLimitLine(llXAxis);
         }
 
@@ -192,8 +197,6 @@ public class LineChartActivity1 extends DemoBase implements OnSeekBarChangeListe
             values.add(new Entry(i, val, getResources().getDrawable(R.drawable.star)));
         }
 
-        values.add(new Entry(count, 200, getResources().getDrawable(R.drawable.star)));
-
         LineDataSet set1;
 
         if (chart.getData() != null &&
@@ -205,20 +208,23 @@ public class LineChartActivity1 extends DemoBase implements OnSeekBarChangeListe
             chart.notifyDataSetChanged();
         } else {
             // create a dataset and give it a type
-            set1 = new LineDataSet(values, "DataSet 1");
+            set1 = new LineDataSet(values, "");
 
             set1.setDrawIcons(false);
 
             // draw dashed line
-            set1.enableDashedLine(10f, 5f, 0f);
+            //set1.enableDashedLine(10f, 5f, 0f);
 
             // black lines and points
-            set1.setColor(Color.BLACK);
-            set1.setCircleColor(Color.BLACK);
+            //set1.setColor(Color.BLACK);
+            //set1.setCircleColor(Color.BLACK);
+
+            set1.setColor(Color.parseColor("#f9b56a"));
+            set1.setCircleColor(Color.parseColor("#F48C17"));
 
             // line thickness and point size
-            set1.setLineWidth(1f);
-            set1.setCircleRadius(3f);
+            set1.setLineWidth(2f);
+            set1.setCircleRadius(5f);
 
             // draw points as solid circles
             set1.setDrawCircleHole(false);
