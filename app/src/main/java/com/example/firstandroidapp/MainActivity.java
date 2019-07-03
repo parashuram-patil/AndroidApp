@@ -1,60 +1,70 @@
 package com.example.firstandroidapp;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import com.anychart.AnyChart;
-import com.anychart.AnyChartView;
-import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.dataentry.ValueDataEntry;
-import com.anychart.charts.Cartesian;
-import com.anychart.charts.Pie;
-import com.anychart.charts.Waterfall;
-import com.anychart.core.Chart;
-import com.anychart.core.cartesian.series.Column;
-import com.anychart.enums.Anchor;
-import com.anychart.enums.HoverMode;
-import com.anychart.enums.Position;
-import com.anychart.enums.TooltipPositionMode;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import com.example.firstandroidapp.notimportant.ContentItem;
+import com.example.firstandroidapp.notimportant.MyAdapter;
+import com.github.mikephil.charting.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements OnItemClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+       /* FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
-        /*Pie pie = AnyChart.pie();
+        setTitle("MPAndroidChart Example");
 
-        List<DataEntry> data = new ArrayList<>();
-        data.add(new ValueDataEntry("John", 10000));
-        data.add(new ValueDataEntry("Jake", 12000));
-        data.add(new ValueDataEntry("Peter", 18000));
+        Utils.init(this);
 
-        pie.data(data);
+        ArrayList<ContentItem> objects = new ArrayList<>();
 
-        AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
-        anyChartView.setChart(pie);*/
+        objects.add(0, new ContentItem("Line Charts"));
+
+        objects.add(1, new ContentItem("Basic", "Simple line chart."));
+        objects.add(2, new ContentItem("Multiple", "Show multiple data sets."));
+
+        objects.add(3, new ContentItem("Bar Charts"));
+
+        objects.add(4, new ContentItem("Basic", "Simple bar chart."));
+        objects.add(5, new ContentItem("Basic 2", "Variation of the simple bar chart."));
+
+        objects.add(6, new ContentItem("Pie Charts"));
+
+        objects.add(7, new ContentItem("Basic", "Simple pie chart."));
+        objects.add(8, new ContentItem("Value Lines", "Stylish lines drawn outward from slices."));
+
+        MyAdapter adapter = new MyAdapter(this, objects);
+
+        ListView lv = findViewById(R.id.listView1);
+        lv.setAdapter(adapter);
+
+        lv.setOnItemClickListener(this);
+
+
     }
 
     @Override
@@ -80,6 +90,23 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     }
 
     @Override
+    public void onItemClick(AdapterView<?> av, View v, int pos, long arg3) {
+
+        Intent i = null;
+
+        switch (pos) {
+            case 1:
+                i = new Intent(this, LineChartActivity1.class);
+                break;
+        }
+
+        if (i != null) startActivity(i);
+
+        overridePendingTransition(R.anim.move_right_in_activity, R.anim.move_left_out_activity);
+
+    }
+
+    /*@Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.pieChartButton:
@@ -146,5 +173,5 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     private void populateChart(Chart chart) {
         AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
         anyChartView.setChart(chart);
-    }
+    }*/
 }
