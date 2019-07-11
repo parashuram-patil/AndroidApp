@@ -49,7 +49,7 @@ import java.util.List;
  * @since 1.7.4
  * @version 3.1.0
  */
-public class LineChartActivity1 extends DemoBase implements OnSeekBarChangeListener,
+public class LineChartActivity extends DemoBase implements OnSeekBarChangeListener,
         OnChartValueSelectedListener {
 
     private LineChart chart;
@@ -63,7 +63,7 @@ public class LineChartActivity1 extends DemoBase implements OnSeekBarChangeListe
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_linechart);
 
-        setTitle("LineChartActivity1");
+        setTitle("LineChartActivity");
 
         tvX = findViewById(R.id.tvXMax);
         tvY = findViewById(R.id.tvYMax);
@@ -281,7 +281,7 @@ public class LineChartActivity1 extends DemoBase implements OnSeekBarChangeListe
         switch (item.getItemId()) {
             case R.id.viewGithub: {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("https://github.com/PhilJay/MPAndroidChart/blob/master/MPChartExample/src/com/xxmassdeveloper/mpchartexample/LineChartActivity1.java"));
+                i.setData(Uri.parse("https://github.com/PhilJay/MPAndroidChart/blob/master/MPChartExample/src/com/xxmassdeveloper/mpchartexample/LineChartActivity.java"));
                 startActivity(i);
                 break;
             }
@@ -443,7 +443,7 @@ public class LineChartActivity1 extends DemoBase implements OnSeekBarChangeListe
 
     @Override
     protected void saveToGallery() {
-        saveToGallery(chart, "LineChartActivity1");
+        saveToGallery(chart, "LineChartActivity");
     }
 
     @Override

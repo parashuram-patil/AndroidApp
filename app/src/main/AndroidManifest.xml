@@ -29,7 +29,7 @@
                     android:pathPrefix="/android/resources" />
             </intent-filter>
         </activity>
-        <activity android:name="LineChartActivity1" />
+        <activity android:name=".LineChartActivity" />
     </application>
 
 </manifest>
