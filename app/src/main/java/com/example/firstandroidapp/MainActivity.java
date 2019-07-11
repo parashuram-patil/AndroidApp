@@ -1,6 +1,7 @@
 package com.example.firstandroidapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -64,7 +65,10 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
 
         lv.setOnItemClickListener(this);
 
-
+        // ATTENTION: This was auto-generated to handle app links.
+        Intent appLinkIntent = getIntent();
+        String appLinkAction = appLinkIntent.getAction();
+        Uri appLinkData = appLinkIntent.getData();
     }
 
     @Override
