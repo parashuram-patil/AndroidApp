@@ -1,13 +1,13 @@
 
-package com.example.firstandroidapp.custom;
+package com.example.psp.custom;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.widget.TextView;
 
-import com.example.firstandroidapp.R;
+import com.example.psp.R;
 import com.github.mikephil.charting.components.MarkerView;
-import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.CandleEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.MPPointF;
@@ -18,13 +18,12 @@ import com.github.mikephil.charting.utils.Utils;
  *
  * @author Philipp Jahoda
  */
-@SuppressWarnings("unused")
 @SuppressLint("ViewConstructor")
-public class StackedBarsMarkerView extends MarkerView {
+public class MyMarkerView extends MarkerView {
 
-    private TextView tvContent;
+    private final TextView tvContent;
 
-    public StackedBarsMarkerView(Context context, int layoutResource) {
+    public MyMarkerView(Context context, int layoutResource) {
         super(context, layoutResource);
 
         tvContent = findViewById(R.id.tvContent);
@@ -35,17 +34,11 @@ public class StackedBarsMarkerView extends MarkerView {
     @Override
     public void refreshContent(Entry e, Highlight highlight) {
 
-        if (e instanceof BarEntry) {
+        if (e instanceof CandleEntry) {
 
-            BarEntry be = (BarEntry) e;
+            CandleEntry ce = (CandleEntry) e;
 
-            if(be.getYVals() != null) {
-
-                // draw the stack value
-                tvContent.setText(Utils.formatNumber(be.getYVals()[highlight.getStackIndex()], 0, true));
-            } else {
-                tvContent.setText(Utils.formatNumber(be.getY(), 0, true));
-            }
+            tvContent.setText(Utils.formatNumber(ce.getHigh(), 0, true));
         } else {
 
             tvContent.setText(Utils.formatNumber(e.getY(), 0, true));

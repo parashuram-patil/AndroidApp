@@ -1,41 +1,27 @@
-package com.example.firstandroidapp;
+package com.example.psp;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import com.example.firstandroidapp.notimportant.ContentItem;
-import com.example.firstandroidapp.notimportant.MyAdapter;
+
+import com.example.psp.R;
+import com.example.psp.notimportant.ContentItem;
+import com.example.psp.notimportant.MyAdapter;
 import com.github.mikephil.charting.utils.Utils;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements OnItemClickListener {
+public class ChartActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
-        //Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
-       /* FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+        setContentView(R.layout.activity_chart);
 
         setTitle("MPAndroidChart Example");
 
@@ -64,12 +50,8 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(this);
-
-        // ATTENTION: This was auto-generated to handle app links.
-        Intent appLinkIntent = getIntent();
-        String appLinkAction = appLinkIntent.getAction();
-        Uri appLinkData = appLinkIntent.getData();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

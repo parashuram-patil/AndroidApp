@@ -1,4 +1,4 @@
-package com.example.firstandroidapp.notimportant;
+package com.example.psp.notimportant;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.firstandroidapp.R;
+import com.example.psp.R;
 
 import java.util.List;
 

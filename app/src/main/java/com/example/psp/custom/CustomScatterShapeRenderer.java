@@ -1,4 +1,4 @@
-package com.example.firstandroidapp.custom;
+package com.example.psp.custom;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

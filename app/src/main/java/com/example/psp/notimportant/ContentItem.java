@@ -1,4 +1,4 @@
-package com.example.firstandroidapp.notimportant;
+package com.example.psp.notimportant;
 
 public class ContentItem {
 

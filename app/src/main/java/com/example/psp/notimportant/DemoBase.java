@@ -1,5 +1,5 @@
 
-package com.example.firstandroidapp.notimportant;
+package com.example.psp.notimportant;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 
-import com.example.firstandroidapp.R;
+import com.example.psp.R;
 import com.github.mikephil.charting.charts.Chart;
 
 /**

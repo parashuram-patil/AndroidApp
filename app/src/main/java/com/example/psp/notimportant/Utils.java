@@ -1,4 +1,4 @@
-package com.example.firstandroidapp.notimportant;
+package com.example.psp.notimportant;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

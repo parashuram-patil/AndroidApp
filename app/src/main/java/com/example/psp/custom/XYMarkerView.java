@@ -1,10 +1,10 @@
-package com.example.firstandroidapp.custom;
+package com.example.psp.custom;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.widget.TextView;
 
-import com.example.firstandroidapp.R;
+import com.example.psp.R;
 import com.github.mikephil.charting.components.MarkerView;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.ValueFormatter;

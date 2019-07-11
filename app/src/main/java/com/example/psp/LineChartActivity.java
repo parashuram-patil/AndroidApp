@@ -1,5 +1,5 @@
 
-package com.example.firstandroidapp;
+package com.example.psp;
 
 import android.Manifest;
 import android.content.Intent;
@@ -9,7 +9,6 @@ import android.graphics.DashPathEffect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Menu;
@@ -20,14 +19,13 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 
-import com.example.firstandroidapp.custom.MyMarkerView;
-import com.example.firstandroidapp.notimportant.DemoBase;
+import com.example.psp.R;
+import com.example.psp.custom.MyMarkerView;
+import com.example.psp.notimportant.DemoBase;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.Legend.LegendForm;
-import com.github.mikephil.charting.components.LimitLine;
-import com.github.mikephil.charting.components.LimitLine.LimitLabelPosition;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -281,7 +279,7 @@ public class LineChartActivity extends DemoBase implements OnSeekBarChangeListen
         switch (item.getItemId()) {
             case R.id.viewGithub: {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("https://github.com/PhilJay/MPAndroidChart/blob/master/MPChartExample/src/com/xxmassdeveloper/mpchartexample/LineChartActivity.java"));
+                i.setData(Uri.parse("https://github.com/parashuram-patil/AndroidApp.git"));
                 startActivity(i);
                 break;
             }
