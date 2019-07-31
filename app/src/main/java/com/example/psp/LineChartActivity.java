@@ -9,7 +9,7 @@ import android.graphics.DashPathEffect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +19,6 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 
-import com.example.psp.R;
 import com.example.psp.custom.MyMarkerView;
 import com.example.psp.notimportant.DemoBase;
 import com.github.mikephil.charting.animation.Easing;

@@ -2,14 +2,13 @@ package com.example.psp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.psp.R;
 import com.example.psp.notimportant.ContentItem;
 import com.example.psp.notimportant.MyAdapter;
 import com.github.mikephil.charting.utils.Utils;
