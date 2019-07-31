@@ -1,0 +1,38 @@
+package com.example.psp.firebase;
+
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
+import com.example.psp.constants.Constants;
+import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
+
+public class DemoFirebaseMessagingService extends FirebaseMessagingService {
+
+    @Override
+    public void onMessageReceived(RemoteMessage remoteMessage) {
+        sendNotification(remoteMessage.getMessageId());
+    }
+
+    private void sendNotification(String messageBody) {
+        /*Intent intent = new Intent(this, NotificationActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, Constants.NOTIFICATION_CHANNEL_ID)
+                //.setSmallIcon(R.mipmap.ic_launcher_round)
+                .setContentTitle("FireBase Integration")
+                .setContentText(messageBody)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                //.setContentIntent(pendingIntent)
+                //.setAutoCancel(true);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        notificationManager.notify(1, builder.build());
+    }
+
+    @Override
+    public void onNewToken(String token) {
+        //sendRegistrationToServer(token);
+    }
+}
