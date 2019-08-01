@@ -15,7 +15,11 @@ public class DemoFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         Map<String, String> data = remoteMessage.getData();
-        String title = remoteMessage.getNotification().getTitle();
+        String title = "Data Recieved";
+        RemoteMessage.Notification notification = remoteMessage.getNotification();
+        if(notification != null) {
+            title = notification.getTitle();
+        }
         String body = "Customized Notification from Firebase"; //remoteMessage.getNotification().getBody();
         sendNotification(title, body);
     }
