@@ -3,6 +3,7 @@ package com.example.psp.firebase;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.example.psp.R;
 import com.example.psp.constants.Constants;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -20,7 +21,7 @@ public class DemoFirebaseMessagingService extends FirebaseMessagingService {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, Constants.NOTIFICATION_CHANNEL_ID)
-                //.setSmallIcon(R.mipmap.ic_launcher_round)
+                .setSmallIcon(R.drawable.notification_image)
                 .setContentTitle("FireBase Integration")
                 .setContentText(messageBody)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
@@ -34,5 +35,7 @@ public class DemoFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken(String token) {
         //sendRegistrationToServer(token);
+
+        System.out.println("**************      " + token + "     ********************");
     }
 }
