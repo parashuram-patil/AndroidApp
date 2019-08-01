@@ -5,4 +5,4 @@
 * Charts using MPAndroidChart
 * App Links
 * AndroidX Migration using Studio
-* Firbase Integration
+* Firebase Integration
