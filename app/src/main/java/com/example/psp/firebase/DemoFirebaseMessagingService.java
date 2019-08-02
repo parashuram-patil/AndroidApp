@@ -5,6 +5,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.example.psp.R;
 import com.example.psp.constants.Constants;
+import com.example.psp.util.Util;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -15,12 +16,19 @@ public class DemoFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         Map<String, String> data = remoteMessage.getData();
-        String title = "Data Recieved";
+        String title = "Notification Error";
+        String body = "Unexpected notification received";
         RemoteMessage.Notification notification = remoteMessage.getNotification();
+
         if(notification != null) {
             title = notification.getTitle();
+            body = remoteMessage.getNotification().getBody();
         }
-        String body = "Customized Notification from Firebase"; //remoteMessage.getNotification().getBody();
+        else if(data != null) {
+            title = data.get(Constants.KEY_TITLE);
+            body = data.get(Constants.KEY_BODY);
+        }
+
         sendNotification(title, body);
     }
 
@@ -43,8 +51,6 @@ public class DemoFirebaseMessagingService extends FirebaseMessagingService {
 
     @Override
     public void onNewToken(String token) {
-        //sendRegistrationToServer(token);
-
-        System.out.println("**************      " + token + "     ********************");
+        Util.setFcmToken(token);
     }
 }

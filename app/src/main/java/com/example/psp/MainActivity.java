@@ -1,24 +1,13 @@
 package com.example.psp;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
-import com.example.psp.constants.Constants;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
+import com.example.psp.util.Util;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,10 +18,11 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        createNotificationChannel();
+        Util.createNotificationChannel(this);
+        Util.setFcmToken();
 
-        CoordinatorLayout coordinatorLayout  = findViewById(R.id.mainLayout);
-        /*coordinatorLayout.setOnClickListener(new View.OnClickListener() {
+        /*CoordinatorLayout coordinatorLayout  = findViewById(R.id.mainLayout);
+        *//*coordinatorLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getBaseContext(), "Message Sent", Toast.LENGTH_LONG);
@@ -43,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                         .addData("my_action","SAY_HELLO")
                         .build());
             }
-        });*/
+        });*//*
 
         coordinatorLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                         });
                 // [END retrieve_current_token]
             }
-        });
+        });*/
 
         /*TestClass testClass = new TestClass();
         testClass.test();*/
@@ -80,13 +70,5 @@ public class MainActivity extends AppCompatActivity {
         Intent appLinkIntent = getIntent();
         String appLinkAction = appLinkIntent.getAction();
         Uri appLinkData = appLinkIntent.getData();
-    }
-
-    private void createNotificationChannel() {
-        int importance = NotificationManager.IMPORTANCE_HIGH;
-        NotificationChannel channel = new NotificationChannel(Constants.NOTIFICATION_CHANNEL_ID, Constants.NOTIFICATION_CHANNEL_NAME, importance);
-        channel.setDescription(Constants.NOTIFICATION_CHANNEL_DESCRIPTION);
-        NotificationManager notificationManager = getSystemService(NotificationManager.class);
-        notificationManager.createNotificationChannel(channel);
     }
 }
