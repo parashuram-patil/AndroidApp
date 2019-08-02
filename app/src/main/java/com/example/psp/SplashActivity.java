@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.example.psp.constants.Constants;
+import com.example.psp.util.Util;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -18,6 +19,9 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        Util.createNotificationChannel(this);
+        Util.setFcmToken();
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         Animation alpha = AnimationUtils.loadAnimation(getApplicationContext(),
