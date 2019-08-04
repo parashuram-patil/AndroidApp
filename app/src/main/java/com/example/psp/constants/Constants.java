@@ -2,6 +2,11 @@ package com.example.psp.constants;
 
 public class Constants {
 
+    /*Titles*/
+    public static final String TITLE_HOME = "Home";
+    public static final String TITLE_NOTIFICATION = "Notification";
+    public static final String TITLE_ABOUT = "About";
+
     public static final String INTENT_ERROR_MESSAGE = "intentErrorMessage";
     public static final String IS_BOARDING_COMLETE = "isOnboardingComplete";
     public static final String SPLASH_PREFS = "SplashPrefs";

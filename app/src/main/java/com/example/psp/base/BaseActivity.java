@@ -2,7 +2,7 @@ package com.example.psp.base;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -16,6 +16,7 @@ import com.example.psp.AboutActivity;
 import com.example.psp.MainActivity;
 import com.example.psp.NotificationActivity;
 import com.example.psp.R;
+import com.example.psp.constants.Constants;
 import com.example.psp.drawer.DrawerNavItem;
 
 import java.util.ArrayList;
@@ -60,9 +61,9 @@ public class BaseActivity extends AppCompatActivity {
 
     private void populateDrawerItems() {
         navItems = new ArrayList<DrawerNavItem>();
-        navItems.add(new DrawerNavItem("Home", "Starting point", R.drawable.ic_launcher));
-        navItems.add(new DrawerNavItem("Notification", "Your all notifications", R.drawable.ic_launcher));
-        navItems.add(new DrawerNavItem("About", "About this App", R.drawable.ic_launcher));
+        navItems.add(new DrawerNavItem(Constants.TITLE_HOME, "Starting point", R.drawable.ic_launcher));
+        navItems.add(new DrawerNavItem(Constants.TITLE_NOTIFICATION, "Your all notifications", R.drawable.ic_launcher));
+        navItems.add(new DrawerNavItem(Constants.TITLE_ABOUT, "About this App", R.drawable.ic_launcher));
 
         listView = (ListView) findViewById(R.id.navList);
         DrawerListAdapter adapter = new DrawerListAdapter(this, navItems);
@@ -76,24 +77,45 @@ public class BaseActivity extends AppCompatActivity {
 
     private void selectItemFromDrawer(int position) {
 
-        switch (position) {
-            case 1 :
+        String title = navItems.get(position).getmTitle();
+        Intent intent;
+        switch (title) {
+            case Constants.TITLE_HOME:
+                intent = new Intent(this, MainActivity.class);
+                break;
+
+            case Constants.TITLE_NOTIFICATION:
+                intent = new Intent(this, NotificationActivity.class);
+                break;
+
+            case Constants.TITLE_ABOUT:
+                intent = new Intent(this, AboutActivity.class);
+                break;
+
+            default:
+                intent = new Intent(this, MainActivity.class);
+                break;
+
+        }
+
+        /*switch (position) {
+            case 0:
                 final Intent mainIntent = new Intent(this, MainActivity.class);
                 startActivity(mainIntent);
                 break;
-            case 2:
+            case 1:
                 final Intent notificationIntent = new Intent(this, NotificationActivity.class);
                 startActivity(notificationIntent);
                 break;
-            case 3:
+            case 2:
                 final Intent aboutIntent = new Intent(this, AboutActivity.class);
                 startActivity(aboutIntent);
                 break;
-        }
+        }*/
 
+        startActivity(intent);
+        finish();
         listView.setItemChecked(position, true);
-        setTitle(navItems.get(position).getmTitle());
         drawerLayout.closeDrawer(mDrawerPane);
-
     }
 }
