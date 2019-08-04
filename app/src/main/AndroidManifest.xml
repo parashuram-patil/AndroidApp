@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,7 +39,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".LineChartActivity" />
-        <activity android:name=".base.BaseActivity" />
+        <activity android:name=".base.BaseActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".AboutActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".NotificationActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <service android:name=".firebase.DemoFirebaseMessagingService">
             <intent-filter>
