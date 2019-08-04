@@ -10,4 +10,29 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="onHoardingStep">
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center_vertical|end</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">60dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="onHoardingHeading">
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center_vertical|end</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">35dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="onHoardingDescription">
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center_vertical|end</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
 </resources>

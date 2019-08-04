@@ -3,12 +3,27 @@ package com.example.psp.util;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.psp.constants.Constants;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 public class Util {
+
+    public static void openNextFragment(ViewPager vp) {
+        vp.setCurrentItem(vp.getCurrentItem() + 1, true);
+    }
+
+    public static void openActivityFromFragmentActivity(FragmentActivity activity, Class<?> className, Boolean doFinish) {
+        if (doFinish)
+            activity.finish();
+        Intent intent = new Intent(activity, className);
+        activity.startActivity(intent);
+    }
 
     public static void createNotificationChannel(Context context) {
         int importance = NotificationManager.IMPORTANCE_HIGH;

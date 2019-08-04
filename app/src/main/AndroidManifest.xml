@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".OnboardingActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -39,12 +42,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".LineChartActivity" />
-        <activity android:name=".base.BaseActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".AboutActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".NotificationActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".base.BaseActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AboutActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NotificationActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <service android:name=".firebase.DemoFirebaseMessagingService">
             <intent-filter>

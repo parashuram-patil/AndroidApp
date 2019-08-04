@@ -52,5 +52,10 @@
     <string name="dash">-</string>
     <string name="scrollViewStart">START OF SCROLLVIEW</string>
     <string name="scrollViewEnd">END OF SCROLLVIEW</string>
+    <string name="titel_app_installation">App Installation</string>
+    <string name="onboarding_step_1">Step 1</string>
+    <string name="onboarding_step_2">Step 2</string>
+    <string name="onBoardingStepHeader">Onboarding</string>
+    <string name="onBoardingStepDescription">You are in step 1\nThis is one time activity.</string>
 
 </resources>
