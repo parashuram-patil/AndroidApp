@@ -2,7 +2,6 @@ package com.example.psp.base;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -97,21 +96,6 @@ public class BaseActivity extends AppCompatActivity {
                 break;
 
         }
-
-        /*switch (position) {
-            case 0:
-                final Intent mainIntent = new Intent(this, MainActivity.class);
-                startActivity(mainIntent);
-                break;
-            case 1:
-                final Intent notificationIntent = new Intent(this, NotificationActivity.class);
-                startActivity(notificationIntent);
-                break;
-            case 2:
-                final Intent aboutIntent = new Intent(this, AboutActivity.class);
-                startActivity(aboutIntent);
-                break;
-        }*/
 
         startActivity(intent);
         finish();

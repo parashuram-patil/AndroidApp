@@ -2,12 +2,13 @@ package com.example.psp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.psp.notimportant.ContentItem;
 import com.example.psp.notimportant.MyAdapter;

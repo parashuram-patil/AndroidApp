@@ -3,6 +3,7 @@ package com.example.psp;
 import android.os.Bundle;
 
 import com.example.psp.base.BaseActivity;
+import com.example.psp.constants.Constants;
 
 public class NotificationActivity extends BaseActivity {
 
@@ -10,6 +11,6 @@ public class NotificationActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
-        setTitle("Notifications");
+        setTitle(Constants.TITLE_NOTIFICATION);
     }
 }

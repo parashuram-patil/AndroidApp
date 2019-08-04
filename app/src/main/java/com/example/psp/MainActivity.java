@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.psp.base.BaseActivity;
+import com.example.psp.constants.Constants;
 
 public class MainActivity extends BaseActivity {
 
@@ -14,7 +15,7 @@ public class MainActivity extends BaseActivity {
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
          //       WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-        setTitle("Home");
+        setTitle(Constants.TITLE_HOME);
 
         /*TestClass testClass = new TestClass();
         testClass.test();*/
