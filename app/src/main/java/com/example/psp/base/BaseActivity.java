@@ -60,9 +60,9 @@ public class BaseActivity extends AppCompatActivity {
 
     private void populateDrawerItems() {
         navItems = new ArrayList<DrawerNavItem>();
-        navItems.add(new DrawerNavItem(Constants.TITLE_HOME, "Starting point", R.drawable.ic_launcher));
-        navItems.add(new DrawerNavItem(Constants.TITLE_NOTIFICATION, "Your all notifications", R.drawable.ic_launcher));
-        navItems.add(new DrawerNavItem(Constants.TITLE_ABOUT, "About this App", R.drawable.ic_launcher));
+        navItems.add(new DrawerNavItem(Constants.TITLE_HOME, "Starting point", R.drawable.home_2x));
+        navItems.add(new DrawerNavItem(Constants.TITLE_NOTIFICATION, "Your all notifications", R.drawable.notiifcation_2x));
+        navItems.add(new DrawerNavItem(Constants.TITLE_ABOUT, "About this App", R.drawable.about_2x));
 
         listView = (ListView) findViewById(R.id.navList);
         DrawerListAdapter adapter = new DrawerListAdapter(this, navItems);
