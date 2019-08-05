@@ -17,6 +17,8 @@ public class Constants {
     public static final String KEY_TITLE = "title";
     public static final String KEY_BODY = "body";
 
+    public static final String DB_FILE_NAME = "AppDatabase";
+
     /*FCM*/
     public static final String TAG_FCM = "FCM";
 
