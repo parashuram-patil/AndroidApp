@@ -7,6 +7,13 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "NOTIFICATION")
 public class NotificationEntity {
 
+    public static final String ID = "id";
+    public static final String NOTIFICATION_ID = "notificationId";
+    public static final String NOTIFICATION_TITEL = "notificationTitle";
+    public static final String NOTIFICATION_BODY = "notificationBody";
+    public static final String IS_READ = "isRead";
+    public static final String CREATION_TIME = "creationTime";
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "ID")
     private int id;

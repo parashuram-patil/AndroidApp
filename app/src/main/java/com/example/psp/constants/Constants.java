@@ -2,6 +2,10 @@ package com.example.psp.constants;
 
 public class Constants {
 
+    /*Tags*/
+    public static final String TAG_FCM = "FCM";
+    public static final String TAG_NOTIICATION_WORKER = "Notification_Worker";
+
     /*Titles*/
     public static final String TITLE_HOME = "Home";
     public static final String TITLE_NOTIFICATION = "Notification";
@@ -16,11 +20,13 @@ public class Constants {
 
     public static final String KEY_TITLE = "title";
     public static final String KEY_BODY = "body";
+    public static final String KEY_NOTIFICATION_ENTITY = "notificationEntity";
+    public static final String KEY_CONTEXT = "context";
+    public static final String KEY_PENDING_ACTIVITY_CLASS_NAME = "pendingActivityClassName";
+
 
     public static final String DB_FILE_NAME = "AppDatabase";
 
     /*FCM*/
-    public static final String TAG_FCM = "FCM";
-
     public static String FCM_TOKEN = "";
 }
