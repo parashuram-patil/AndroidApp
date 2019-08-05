@@ -1,4 +1,4 @@
-package com.example.psp.drawer;
+package com.example.psp.item;
 
 public class DrawerNavItem {
     String mTitle;

@@ -1,4 +1,4 @@
-package com.example.psp.base;
+package com.example.psp.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,11 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.psp.R;
-import com.example.psp.drawer.DrawerNavItem;
+import com.example.psp.item.DrawerNavItem;
 
 import java.util.ArrayList;
 
-class DrawerListAdapter extends BaseAdapter {
+public class DrawerListAdapter extends BaseAdapter {
 
     Context mContext;
     ArrayList<DrawerNavItem> mNavItems;
@@ -50,7 +50,7 @@ class DrawerListAdapter extends BaseAdapter {
         }
 
         TextView titleView = (TextView) view.findViewById(R.id.title);
-        TextView subtitleView = (TextView) view.findViewById(R.id.subTitle);
+        TextView subtitleView = (TextView) view.findViewById(R.id.body);
         ImageView iconView = (ImageView) view.findViewById(R.id.icon);
 
         titleView.setText(mNavItems.get(position).getmTitle());

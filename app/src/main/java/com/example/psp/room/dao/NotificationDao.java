@@ -6,14 +6,20 @@ import androidx.room.Query;
 
 import com.example.psp.room.entity.NotificationEntity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Dao
 public interface NotificationDao {
 
     @Insert
     void insert(NotificationEntity task);
 
-    @Query("SELECT DISTINCT * FROM NOTIFICATION WHERE NOTIFICATION_ID = :notificationId")
+    @Query("SELECT * FROM NOTIFICATION WHERE NOTIFICATION_ID = :notificationId")
     NotificationEntity getNotificationById(String notificationId);
+
+    @Query("SELECT * FROM NOTIFICATION")
+    List<NotificationEntity> getAllNotifications();
 
     @Query("DELETE FROM NOTIFICATION WHERE CREATION_TIME < :creationTime")
     void clearNotifications(Long creationTime);

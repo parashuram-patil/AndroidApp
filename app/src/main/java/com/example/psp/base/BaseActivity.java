@@ -15,8 +15,9 @@ import com.example.psp.AboutActivity;
 import com.example.psp.MainActivity;
 import com.example.psp.NotificationActivity;
 import com.example.psp.R;
+import com.example.psp.adapter.DrawerListAdapter;
 import com.example.psp.constants.Constants;
-import com.example.psp.drawer.DrawerNavItem;
+import com.example.psp.item.DrawerNavItem;
 
 import java.util.ArrayList;
 
