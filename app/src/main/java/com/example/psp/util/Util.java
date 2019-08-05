@@ -5,7 +5,9 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
@@ -141,5 +143,9 @@ public class Util {
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
         notificationManager.notify(entity.getNotificationId().hashCode(), builder.build());
+    }
+
+    public static void makeTextNormal(TextView textView) {
+        textView.setTypeface(null, Typeface.NORMAL);
     }
 }

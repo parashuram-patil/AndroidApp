@@ -1,6 +1,7 @@
 package com.example.psp.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.psp.R;
 import com.example.psp.room.entity.NotificationEntity;
+import com.example.psp.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,10 +52,14 @@ public class NotificationListAdapter extends BaseAdapter {
         }
 
         TextView titleView = (TextView) view.findViewById(R.id.title);
-        TextView subtitleView = (TextView) view.findViewById(R.id.body);
+        TextView bodyView = (TextView) view.findViewById(R.id.body);
+        if(items.get(position).getIsRead()) {
+            Util.makeTextNormal(titleView);
+            Util.makeTextNormal(bodyView);
+        }
 
         titleView.setText(items.get(position).getNotificationTitle());
-        subtitleView.setText(items.get(position).getNotificationBody());
+        bodyView.setText(items.get(position).getNotificationBody());
 
         return view;
     }

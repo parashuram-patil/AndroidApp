@@ -26,6 +26,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/icon"
-        android:text="Line 2" />
+        android:text="Line 2"
+        android:textStyle="bold"/>
 
 </RelativeLayout>

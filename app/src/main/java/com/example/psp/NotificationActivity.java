@@ -2,15 +2,21 @@ package com.example.psp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.psp.adapter.NotificationListAdapter;
 import com.example.psp.base.BaseActivity;
 import com.example.psp.constants.Constants;
 import com.example.psp.room.db.DatabaseClient;
 import com.example.psp.room.entity.NotificationEntity;
+import com.example.psp.util.Util;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -22,6 +28,20 @@ public class NotificationActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
         setTitle(Constants.TITLE_NOTIFICATION);
+
+        ListView listView = findViewById(R.id.notificationList);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView titleView = (TextView) ((RelativeLayout) view).getChildAt(0);
+                Util.makeTextNormal(titleView);
+                TextView bodyView = (TextView) ((RelativeLayout) view).getChildAt(1);
+                Util.makeTextNormal(bodyView);
+                NotificationEntity item = (NotificationEntity) parent.getItemAtPosition(position);
+                item.setIsRead(true);
+                new UpdateNotificationTask(NotificationActivity.this, item).execute();
+            }
+        });
 
         new FetchNotificationsTask(this).execute();
     }
@@ -53,4 +73,23 @@ public class NotificationActivity extends BaseActivity {
         }
     }
 
+    private static class UpdateNotificationTask extends AsyncTask<Void, Void, Void> {
+        private WeakReference<Activity> activityWeakReference;
+        private NotificationEntity entity;
+
+        public UpdateNotificationTask(Activity activity, NotificationEntity entity) {
+            this.activityWeakReference = new WeakReference<>(activity);
+            this.entity = entity;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            updateNotification(this.activityWeakReference.get(), this.entity);
+            return null;
+        }
+
+        private void updateNotification(Context context, NotificationEntity item) {
+            DatabaseClient.getDatabaseClient(context).getAppDatabase().notificationDao().update(item);
+        }
+    }
 }
