@@ -11,7 +11,6 @@ import android.widget.FrameLayout;
 
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 
 import com.example.psp.constants.Constants;
 import com.example.psp.listeners.OnSwipeTouchListener;

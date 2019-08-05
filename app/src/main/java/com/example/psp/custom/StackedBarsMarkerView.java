@@ -39,7 +39,7 @@ public class StackedBarsMarkerView extends MarkerView {
 
             BarEntry be = (BarEntry) e;
 
-            if(be.getYVals() != null) {
+            if (be.getYVals() != null) {
 
                 // draw the stack value
                 tvContent.setText(Utils.formatNumber(be.getYVals()[highlight.getStackIndex()], 0, true));

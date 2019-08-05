@@ -43,8 +43,8 @@ import java.util.List;
 /**
  * Example of a heavily customized {@link LineChart} with limit lines, custom line shapes, etc.
  *
- * @since 1.7.4
  * @version 3.1.0
+ * @since 1.7.4
  */
 public class LineChartActivity extends DemoBase implements OnSeekBarChangeListener,
         OnChartValueSelectedListener {
@@ -309,7 +309,7 @@ public class LineChartActivity extends DemoBase implements OnSeekBarChangeListen
                 break;
             }
             case R.id.actionToggleHighlight: {
-                if(chart.getData() != null) {
+                if (chart.getData() != null) {
                     chart.getData().setHighlightEnabled(!chart.getData().isHighlightEnabled());
                     chart.invalidate();
                 }
@@ -355,7 +355,7 @@ public class LineChartActivity extends DemoBase implements OnSeekBarChangeListen
                     LineDataSet set = (LineDataSet) iSet;
                     set.setMode(set.getMode() == LineDataSet.Mode.CUBIC_BEZIER
                             ? LineDataSet.Mode.LINEAR
-                            :  LineDataSet.Mode.CUBIC_BEZIER);
+                            : LineDataSet.Mode.CUBIC_BEZIER);
                 }
                 chart.invalidate();
                 break;
@@ -369,7 +369,7 @@ public class LineChartActivity extends DemoBase implements OnSeekBarChangeListen
                     LineDataSet set = (LineDataSet) iSet;
                     set.setMode(set.getMode() == LineDataSet.Mode.STEPPED
                             ? LineDataSet.Mode.LINEAR
-                            :  LineDataSet.Mode.STEPPED);
+                            : LineDataSet.Mode.STEPPED);
                 }
                 chart.invalidate();
                 break;
@@ -383,7 +383,7 @@ public class LineChartActivity extends DemoBase implements OnSeekBarChangeListen
                     LineDataSet set = (LineDataSet) iSet;
                     set.setMode(set.getMode() == LineDataSet.Mode.HORIZONTAL_BEZIER
                             ? LineDataSet.Mode.LINEAR
-                            :  LineDataSet.Mode.HORIZONTAL_BEZIER);
+                            : LineDataSet.Mode.HORIZONTAL_BEZIER);
                 }
                 chart.invalidate();
                 break;
@@ -444,10 +444,12 @@ public class LineChartActivity extends DemoBase implements OnSeekBarChangeListen
     }
 
     @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {}
+    public void onStartTrackingTouch(SeekBar seekBar) {
+    }
 
     @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {}
+    public void onStopTrackingTouch(SeekBar seekBar) {
+    }
 
     @Override
     public void onValueSelected(Entry e, Highlight h) {

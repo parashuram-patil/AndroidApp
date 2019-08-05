@@ -11,8 +11,7 @@ import java.text.DecimalFormat;
  * @deprecated The {@link MyCustomXAxisValueFormatter} does exactly the same thing and is more functional.
  */
 @Deprecated
-public class MyCustomXAxisValueFormatter extends ValueFormatter
-{
+public class MyCustomXAxisValueFormatter extends ValueFormatter {
 
     private final DecimalFormat mFormat;
     private final ViewPortHandler mViewPortHandler;

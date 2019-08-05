@@ -8,8 +8,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
  * Created by Philipp Jahoda on 12/09/15.
  */
 @SuppressWarnings("unused")
-public class MyFillFormatter implements IFillFormatter
-{
+public class MyFillFormatter implements IFillFormatter {
 
     private float fillPos;
 

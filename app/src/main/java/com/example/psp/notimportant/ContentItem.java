@@ -6,7 +6,7 @@ public class ContentItem {
     final String desc;
     boolean isSection = false;
 
-    public  ContentItem(String n) {
+    public ContentItem(String n) {
         name = n;
         desc = "";
         isSection = true;

@@ -20,11 +20,10 @@ public class DemoFirebaseMessagingService extends FirebaseMessagingService {
         String body = "Unexpected notification received";
         RemoteMessage.Notification notification = remoteMessage.getNotification();
 
-        if(notification != null) {
+        if (notification != null) {
             title = notification.getTitle();
             body = remoteMessage.getNotification().getBody();
-        }
-        else if(data != null) {
+        } else if (data != null) {
             title = data.get(Constants.KEY_TITLE);
             body = data.get(Constants.KEY_BODY);
         }
@@ -42,8 +41,8 @@ public class DemoFirebaseMessagingService extends FirebaseMessagingService {
                 .setContentTitle(title)
                 .setContentText(messageBody)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-                //.setContentIntent(pendingIntent)
-                //.setAutoCancel(true);
+        //.setContentIntent(pendingIntent)
+        //.setAutoCancel(true);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(1, builder.build());

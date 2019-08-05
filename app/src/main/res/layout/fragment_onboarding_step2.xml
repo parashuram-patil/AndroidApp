@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:text="@string/onboarding_step_2"
             android:gravity="center"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/arrowImage"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:text="@string/onBoardingStepHeader"
-        android:layout_marginBottom="90dp"/>
+        android:layout_marginBottom="90dp" />
 
     <TextView
         style="@style/onHoardingDescription"
@@ -48,6 +48,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:text="@string/onBoardingStepDescription"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="25dp" />
 
 </FrameLayout>

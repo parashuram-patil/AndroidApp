@@ -1,13 +1,13 @@
 package com.example.psp;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
-import android.os.Bundle;
 
 import com.viewpagerindicator.CirclePageIndicator;
 
@@ -22,7 +22,7 @@ public class OnboardingActivity extends AppCompatActivity {
         PagerAdapter a = new PageAdapter(getSupportFragmentManager());
         pager.setAdapter(a);
 
-        CirclePageIndicator indicator = (CirclePageIndicator)findViewById(R.id.indicator);
+        CirclePageIndicator indicator = (CirclePageIndicator) findViewById(R.id.indicator);
         indicator.setViewPager(pager);
         final float density = getResources().getDisplayMetrics().density;
         indicator.setRadius(5 * density);
