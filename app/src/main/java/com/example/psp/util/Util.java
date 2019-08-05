@@ -24,6 +24,8 @@ import com.example.psp.worker.HandleNotificationWorker;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.util.Date;
+
 public class Util {
 
     public static void openNextFragment(ViewPager vp) {
@@ -87,7 +89,7 @@ public class Util {
         return new Data.Builder()
                 .putString(NotificationEntity.NOTIFICATION_ID, id)
                 .putString(NotificationEntity.NOTIFICATION_TITEL, title)
-                .putString(NotificationEntity.NOTIFICATION_BODY, body)
+                .putString(NotificationEntity.NOTIFICATION_BODY, body + "  "+ (new Date().toString()))
                 .putBoolean(NotificationEntity.IS_READ, false)
                 .putLong(NotificationEntity.CREATION_TIME, System.currentTimeMillis())
                 .putString(Constants.KEY_PENDING_ACTIVITY_CLASS_NAME, pendingActivityClassName)
