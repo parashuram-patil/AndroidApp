@@ -1,9 +1,11 @@
 package com.example.psp.util;
 
+import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.util.Log;
@@ -29,6 +31,21 @@ import com.google.firebase.messaging.RemoteMessage;
 import java.util.Date;
 
 public class Util {
+
+    public static void showOkPopUp(Context context, CharSequence title, CharSequence message, @Nullable  int icon) {
+        AlertDialog.Builder b = new AlertDialog.Builder(context);
+        b.setTitle(title);
+        b.setMessage(message + "!");
+        b.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        b.setIcon(icon);
+        b.show();
+    }
 
     public static void openNextFragment(ViewPager vp) {
         vp.setCurrentItem(vp.getCurrentItem() + 1, true);

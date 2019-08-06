@@ -40,6 +40,7 @@ public class NotificationActivity extends BaseActivity {
                 NotificationEntity item = (NotificationEntity) parent.getItemAtPosition(position);
                 item.setIsRead(true);
                 new UpdateNotificationTask(NotificationActivity.this, item).execute();
+                Util.showOkPopUp(NotificationActivity.this, titleView.getText(), bodyView.getText(), R.drawable.notiifcation_1x);
             }
         });
 
