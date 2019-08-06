@@ -20,6 +20,7 @@ import androidx.work.Data;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
+import com.example.psp.NotificationActivity;
 import com.example.psp.R;
 import com.example.psp.constants.Constants;
 import com.example.psp.room.db.DatabaseClient;
@@ -124,7 +125,7 @@ public class Util {
             //e.printStackTrace();
         }
 
-        return claszz;
+        return NotificationActivity.class;
     }
 
     public static NotificationEntity getNotificationEntity(Data data) {
