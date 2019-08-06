@@ -22,7 +22,7 @@ public interface NotificationDao {
     @Query("SELECT * FROM NOTIFICATION WHERE NOTIFICATION_ID = :notificationId")
     NotificationEntity getNotificationById(String notificationId);
 
-    @Query("SELECT * FROM NOTIFICATION")
+    @Query("SELECT * FROM NOTIFICATION ORDER BY CREATION_TIME DESC")
     List<NotificationEntity> getAllNotifications();
 
     @Query("DELETE FROM NOTIFICATION WHERE CREATION_TIME < :creationTime")
