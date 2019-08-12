@@ -21,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         Util.createNotificationChannel(this);
-        Util.setFcmToken();
+        Util.getAppInstanceId();
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         Animation alpha = AnimationUtils.loadAnimation(getApplicationContext(),

@@ -73,11 +73,11 @@ public class Util {
         notificationManager.createNotificationChannel(channel);
     }
 
-    public static void setFcmToken(String token) {
+    public static void setAppInstanceId(String token) {
         Constants.FCM_TOKEN = token;
     }
 
-    public static void setFcmToken() {
+    public static void getAppInstanceId() {
 
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(task -> {

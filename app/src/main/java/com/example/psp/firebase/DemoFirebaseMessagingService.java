@@ -1,23 +1,12 @@
 package com.example.psp.firebase;
 
-import android.content.Context;
-
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.work.Data;
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
 
-import com.example.psp.R;
 import com.example.psp.constants.Constants;
-import com.example.psp.room.entity.NotificationEntity;
 import com.example.psp.util.Util;
-import com.example.psp.worker.HandleNotificationWorker;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class DemoFirebaseMessagingService extends FirebaseMessagingService {
@@ -28,6 +17,8 @@ public class DemoFirebaseMessagingService extends FirebaseMessagingService {
         String title = "Notification Error";
         String body = "Unexpected notification received";
         RemoteMessage.Notification notification = remoteMessage.getNotification();
+
+        String from = remoteMessage.getFrom();
 
         if (notification != null) {
             title = notification.getTitle();
@@ -50,6 +41,6 @@ public class DemoFirebaseMessagingService extends FirebaseMessagingService {
 
     @Override
     public void onNewToken(String token) {
-        Util.setFcmToken(token);
+        Util.setAppInstanceId(token);
     }
 }
