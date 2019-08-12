@@ -30,6 +30,7 @@
   ```
 >####  Topic Subscription
   
+  ```
   Pushing Notification to Subscribed devices
   
   curl -X POST \
@@ -48,7 +49,7 @@
   Where,
   <Your:Server:Key> can be found on Firbase console <br /> 
   <Your:Topic:Name> Name of topic when message will be pulished
-
+  ```
 
 * Custom View Pager
 * Splash Screens with Animation
