@@ -18,6 +18,7 @@ public class DemoFirebaseMessagingService extends FirebaseMessagingService {
         String body = "Unexpected notification received";
         RemoteMessage.Notification notification = remoteMessage.getNotification();
 
+        //Identifies message source like topic etc
         String from = remoteMessage.getFrom();
 
         if (notification != null) {

@@ -32,4 +32,5 @@ public class Constants {
 
     /*FCM*/
     public static String FCM_TOKEN = "";
+    public static final String FCM_TOPIC = "MyTopic";
 }

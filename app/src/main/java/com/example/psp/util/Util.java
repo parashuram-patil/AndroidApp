@@ -8,10 +8,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.util.Log;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -30,7 +30,10 @@ import com.example.psp.room.db.DatabaseClient;
 import com.example.psp.room.entity.NotificationEntity;
 import com.example.psp.worker.ClearNotificationsWorker;
 import com.example.psp.worker.HandleNotificationWorker;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.RemoteMessage;
 
 import java.time.LocalTime;
@@ -82,14 +85,33 @@ public class Util {
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(task -> {
                     if (!task.isSuccessful()) {
-                        Log.w(Constants.TAG_FCM, "getInstanceId failed", task.getException());
+                        Log.w(Constants.TAG_FCM + "_TOKEN" + " ---> ", "getInstanceId failed", task.getException());
                         return;
                     }
 
                     String token = task.getResult().getToken();
                     Constants.FCM_TOKEN = token;
-                    Log.d("Token ---> " + Constants.TAG_FCM, token);
+                    Log.d(Constants.TAG_FCM + "_TOKEN" + " ---> ", token);
                 });
+    }
+
+    public static void subscribeToFccTopic() {
+        FirebaseMessaging.getInstance().subscribeToTopic(Constants.FCM_TOPIC)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Subscription ";
+                        if (!task.isSuccessful()) {
+                            msg += "Failure";
+                        }
+                        else {
+                            msg += "Success";
+                        }
+
+                        Log.d(Constants.TAG_FCM + "_SUBSCRIPTION" + " ---> ", msg);
+                    }
+                });
+
     }
 
     public static void scheduleNotificationJob(Data data) {
