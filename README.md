@@ -1,5 +1,5 @@
 # AndroidApp
-> Getting hands dirty with Android Application Development
+>### Getting hands dirty with Android Application Development
 
 ## Features
 ### Charts using MPAndroidChart
