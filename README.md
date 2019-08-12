@@ -2,10 +2,10 @@
 > Getting hands dirty with Android Application Development
 
 ## Features
-* Charts using MPAndroidChart
-* App Links
-* AndroidX Migration using Studio
-* Firebase Integration
+### Charts using MPAndroidChart
+### App Links
+### AndroidX Migration using Studio
+### Firebase Integration
  >#### Push Notification
 
   ```
@@ -51,12 +51,12 @@
   <Your:Topic:Name> Name of topic when message will be pulished
   ```
 
-* Custom View Pager
-* Splash Screens with Animation
+### Custom View Pager
+### Splash Screens with Animation
   >* Evrytime
   >* Onetime
-* Drawer/Hamburger Menu
-* Room DB
-* Work Manager and Async Tasks
+### Drawer/Hamburger Menu
+### Room DB
+### Work Manager and Async Tasks
   >* Ontime
   >* Scheduled(Unique)
