@@ -6,7 +6,7 @@
 * App Links
 * AndroidX Migration using Studio
 * Firebase Integration
- >#### Push Notification
+ >* Push Notification
 
   Pushing Notification to specific device
   
