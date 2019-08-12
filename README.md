@@ -53,8 +53,8 @@
 
 ### Custom View Pager
 ### Splash Screens with Animation
-  >* Evrytime
-  >* Onetime
+  >* Ontime
+  >* Scheduled
 ### Drawer/Hamburger Menu
 ### Room DB
 ### Work Manager and Async Tasks
