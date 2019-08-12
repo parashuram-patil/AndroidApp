@@ -6,7 +6,7 @@
 * App Links
 * AndroidX Migration using Studio
 * Firebase Integration
- ### Push Notification
+ >#### Push Notification
 
   Pushing Notification to specific device
   
@@ -27,7 +27,7 @@
   <Your:Server:Key> can be found on Firbase console <br /> 
   <Your:App:ID> app specific id
 
-###  Topic Subscription
+>####  Topic Subscription
   
   Pushing Notification to Subscribed devices
   
