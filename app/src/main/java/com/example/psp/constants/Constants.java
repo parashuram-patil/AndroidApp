@@ -4,7 +4,8 @@ public class Constants {
 
     /*Tags*/
     public static final String TAG_FCM = "FCM";
-    public static final String TAG_NOTIICATION_WORKER = "Notification_Worker";
+    public static final String TAG_HANDLE_NOTIFICATION_WORKER = "HandleNotification";
+    public static final String TAG_CLEAR_NOTIFICATIONS_WORKER = "ClearNotifications";
 
     /*Titles*/
     public static final String TITLE_HOME = "Home";
@@ -26,6 +27,8 @@ public class Constants {
 
 
     public static final String DB_FILE_NAME = "AppDatabase";
+    public static final Integer NOTIFICATION_CLEAN_UP_DAYS = 10;
+    public static final Long NOTIFICATION_CLEAN_UP_TIME = 86400000L * Long.valueOf(NOTIFICATION_CLEAN_UP_DAYS);
 
     /*FCM*/
     public static String FCM_TOKEN = "";

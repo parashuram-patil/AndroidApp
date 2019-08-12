@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -17,7 +18,9 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 import androidx.work.Data;
+import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.OneTimeWorkRequest;
+import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 
 import com.example.psp.NotificationActivity;
@@ -25,15 +28,18 @@ import com.example.psp.R;
 import com.example.psp.constants.Constants;
 import com.example.psp.room.db.DatabaseClient;
 import com.example.psp.room.entity.NotificationEntity;
+import com.example.psp.worker.ClearNotificationsWorker;
 import com.example.psp.worker.HandleNotificationWorker;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.time.LocalTime;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class Util {
 
-    public static void showOkPopUp(Context context, CharSequence title, CharSequence message, @Nullable  int icon) {
+    public static void showOkPopUp(Context context, CharSequence title, CharSequence message, @Nullable int icon) {
         AlertDialog.Builder b = new AlertDialog.Builder(context);
         b.setTitle(title);
         b.setMessage(message + "!");
@@ -109,7 +115,7 @@ public class Util {
         return new Data.Builder()
                 .putString(NotificationEntity.NOTIFICATION_ID, id)
                 .putString(NotificationEntity.NOTIFICATION_TITEL, title)
-                .putString(NotificationEntity.NOTIFICATION_BODY, body + "  "+ (new Date().toString()))
+                .putString(NotificationEntity.NOTIFICATION_BODY, body + "  " + (new Date().toString()))
                 .putBoolean(NotificationEntity.IS_READ, false)
                 .putLong(NotificationEntity.CREATION_TIME, System.currentTimeMillis())
                 .putString(Constants.KEY_PENDING_ACTIVITY_CLASS_NAME, pendingActivityClassName)
@@ -165,5 +171,23 @@ public class Util {
 
     public static void makeTextNormal(TextView textView) {
         textView.setTypeface(null, Typeface.NORMAL);
+    }
+
+    public static void startNotificationsCleanupWorker() {
+        PeriodicWorkRequest work = new PeriodicWorkRequest.Builder(
+                ClearNotificationsWorker.class,
+                10,
+                TimeUnit.DAYS,
+                getRemainingHoursUntilMidnight(),
+                TimeUnit.HOURS)
+                .build();
+
+        WorkManager.getInstance().enqueueUniquePeriodicWork(Constants.TAG_CLEAR_NOTIFICATIONS_WORKER, ExistingPeriodicWorkPolicy.KEEP, work);
+    }
+
+    public static int getRemainingHoursUntilMidnight() {
+        int remainingHours = 23 - LocalTime.now().getHour() + 1;
+
+        return remainingHours;
     }
 }

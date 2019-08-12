@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.example.psp.base.BaseActivity;
 import com.example.psp.constants.Constants;
+import com.example.psp.util.Util;
 
 public class MainActivity extends BaseActivity {
 
@@ -16,6 +17,8 @@ public class MainActivity extends BaseActivity {
         //       WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         setTitle(Constants.TITLE_HOME);
+
+        Util.startNotificationsCleanupWorker();
 
         /*TestClass testClass = new TestClass();
         testClass.test();*/

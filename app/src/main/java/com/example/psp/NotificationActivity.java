@@ -39,7 +39,7 @@ public class NotificationActivity extends BaseActivity {
                 Util.makeTextNormal(bodyView);
                 NotificationEntity item = (NotificationEntity) parent.getItemAtPosition(position);
                 item.setIsRead(true);
-                new UpdateNotificationTask(NotificationActivity.this, item).execute();
+                new UpdateNotificationTask(NotificationActivity.this, item.getNotificationId()).execute();
                 Util.showOkPopUp(NotificationActivity.this, titleView.getText(), bodyView.getText(), R.drawable.notiifcation_1x);
             }
         });
@@ -76,21 +76,21 @@ public class NotificationActivity extends BaseActivity {
 
     private static class UpdateNotificationTask extends AsyncTask<Void, Void, Void> {
         private WeakReference<Activity> activityWeakReference;
-        private NotificationEntity entity;
+        private String notificationId;
 
-        public UpdateNotificationTask(Activity activity, NotificationEntity entity) {
+        public UpdateNotificationTask(Activity activity, String notificationId) {
             this.activityWeakReference = new WeakReference<>(activity);
-            this.entity = entity;
+            this.notificationId = notificationId;
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
-            updateNotification(this.activityWeakReference.get(), this.entity);
+            updateNotification(this.activityWeakReference.get(), this.notificationId);
             return null;
         }
 
-        private void updateNotification(Context context, NotificationEntity item) {
-            DatabaseClient.getDatabaseClient(context).getAppDatabase().notificationDao().update(item);
+        private void updateNotification(Context context, String notificationId) {
+            DatabaseClient.getDatabaseClient(context).getAppDatabase().notificationDao().markAsRead(notificationId);
         }
     }
 }

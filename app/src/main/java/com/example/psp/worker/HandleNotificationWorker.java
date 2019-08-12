@@ -37,7 +37,7 @@ public class HandleNotificationWorker extends Worker {
         Util.saveNotification(entity, context);
         Util.sendNotification(entity, context, clazz);
 
-        Log.d(Constants.TAG_NOTIICATION_WORKER, "Handled notification : " + entity.getNotificationId());
+        Log.d(Constants.TAG_HANDLE_NOTIFICATION_WORKER, "Handled notification : " + entity.getNotificationId());
         return Result.success();
     }
 }

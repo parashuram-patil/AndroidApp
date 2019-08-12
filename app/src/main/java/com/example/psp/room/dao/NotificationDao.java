@@ -19,13 +19,16 @@ public interface NotificationDao {
     @Update
     void update(NotificationEntity task);
 
+    @Query(" UPDATE NOTIFICATION SET IS_READ = 1 WHERE NOTIFICATION_ID = :notificationId")
+    void markAsRead(String notificationId);
+
     @Query("SELECT * FROM NOTIFICATION WHERE NOTIFICATION_ID = :notificationId")
     NotificationEntity getNotificationById(String notificationId);
 
     @Query("SELECT * FROM NOTIFICATION ORDER BY CREATION_TIME DESC")
     List<NotificationEntity> getAllNotifications();
 
-    @Query("DELETE FROM NOTIFICATION WHERE CREATION_TIME < :creationTime")
+    @Query("DELETE FROM NOTIFICATION WHERE IS_READ = 1 AND CREATION_TIME < :creationTime")
     void clearNotifications(Long creationTime);
 
     /*@Delete
