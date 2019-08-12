@@ -6,8 +6,8 @@
 * App Links
 * AndroidX Migration using Studio
 * Firebase Integration
-  ### Push Notification
-  ```
+ ### Push Notification
+
   Pushing Notification to specific device
   
   curl -X POST \
@@ -21,15 +21,14 @@
         "summary": "Alert Summary",
         "details": "This is alert\nThis is alert\nThis is alert "
     }
-}'
+  }'
 
-Where,
-<Your:Server:Key> can be found on Firbase console
-<Your:App:ID> app specific id
-```
+  Where,
+  <Your:Server:Key> can be found on Firbase console <br /> 
+  <Your:App:ID> app specific id
 
-  ###  Topic Subscription
-  ```
+###  Topic Subscription
+  
   Pushing Notification to Subscribed devices
   
   curl -X POST \
@@ -43,12 +42,12 @@ Where,
         "summary": "Alert Summary",
         "details": "This is alert\nThis is alert\nThis is alert "
     }
-}'
+  }'
 
-Where,
-<Your:Server:Key> can be found on Firbase console
-<Your:Topic:Name> Name of topic when message will be pulished
-```
+  Where,
+  <Your:Server:Key> can be found on Firbase console <br /> 
+  <Your:Topic:Name> Name of topic when message will be pulished
+
 
 * Custom View Pager
 * Splash Screens with Animation
