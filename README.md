@@ -8,6 +8,7 @@
 * Firebase Integration
  >#### Push Notification
 
+  ```
   Pushing Notification to specific device
   
   curl -X POST \
@@ -26,7 +27,7 @@
   Where,
   <Your:Server:Key> can be found on Firbase console <br /> 
   <Your:App:ID> app specific id
-
+  ```
 >####  Topic Subscription
   
   Pushing Notification to Subscribed devices
