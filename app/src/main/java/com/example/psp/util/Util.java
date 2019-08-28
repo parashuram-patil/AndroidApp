@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -26,6 +28,7 @@ import androidx.work.WorkManager;
 import com.example.psp.NotificationActivity;
 import com.example.psp.R;
 import com.example.psp.constants.Constants;
+import com.example.psp.drawable.BagdeDrawable;
 import com.example.psp.room.db.DatabaseClient;
 import com.example.psp.room.entity.NotificationEntity;
 import com.example.psp.worker.ClearNotificationsWorker;
@@ -211,5 +214,21 @@ public class Util {
         int remainingHours = 23 - LocalTime.now().getHour() + 1;
 
         return remainingHours;
+    }
+
+    public static void setBadgeCount(Context context, LayerDrawable icon, String count) {
+        BagdeDrawable badge;
+
+        // Reuse drawable if possible
+        Drawable reuse = icon.findDrawableByLayerId(R.id.ic_badge);
+        if (reuse != null && reuse instanceof BagdeDrawable) {
+            badge = (BagdeDrawable) reuse;
+        } else {
+            badge = new BagdeDrawable(context);
+        }
+
+        badge.setCount(count);
+        icon.mutate();
+        icon.setDrawableByLayerId(R.id.ic_badge, badge);
     }
 }

@@ -1,7 +1,10 @@
 package com.example.psp.base;
 
 import android.content.Intent;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -18,6 +21,7 @@ import com.example.psp.R;
 import com.example.psp.adapter.DrawerListAdapter;
 import com.example.psp.constants.Constants;
 import com.example.psp.item.DrawerNavItem;
+import com.example.psp.util.Util;
 
 import java.util.ArrayList;
 
@@ -102,5 +106,24 @@ public class BaseActivity extends AppCompatActivity {
         finish();
         listView.setItemChecked(position, true);
         drawerLayout.closeDrawer(mDrawerPane);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.navitgation_menu, menu);
+        MenuItem itemCart = menu.findItem(R.id.notificationIcon);
+        LayerDrawable icon = (LayerDrawable) itemCart.getIcon();
+        Util.setBadgeCount(this, icon, "999");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.notificationIcon) {
+            final Intent configurationIntent = new Intent(this, NotificationActivity.class);
+            startActivity(configurationIntent);
+        }
+
+        return true;
     }
 }
