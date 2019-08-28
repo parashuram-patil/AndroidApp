@@ -3,6 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/notificationIcon"
-        android:icon="@drawable/ic_menu_notification"
+        android:icon="@drawable/ic_menu_notification_filled"
         app:showAsAction="always" />
 </menu>

@@ -221,7 +221,7 @@ public class Util {
         BagdeDrawable badge;
 
         // Reuse drawable if possible
-        Drawable reuse = icon.findDrawableByLayerId(R.id.ic_badge);
+        Drawable reuse = icon.findDrawableByLayerId(R.id.ic_badge_filled);
         if (reuse != null && reuse instanceof BagdeDrawable) {
             badge = (BagdeDrawable) reuse;
         } else {
@@ -230,7 +230,7 @@ public class Util {
 
         badge.setCount(count.toString());
         icon.mutate();
-        icon.setDrawableByLayerId(R.id.ic_badge, badge);
+        icon.setDrawableByLayerId(R.id.ic_badge_filled, badge);
     }
 
     private static synchronized void updateNotificationCount(boolean isIncrement) {
