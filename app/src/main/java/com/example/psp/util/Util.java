@@ -27,6 +27,7 @@ import androidx.work.WorkManager;
 
 import com.example.psp.NotificationActivity;
 import com.example.psp.R;
+import com.example.psp.base.BaseActivity;
 import com.example.psp.constants.Constants;
 import com.example.psp.drawable.BagdeDrawable;
 import com.example.psp.room.db.DatabaseClient;
@@ -216,7 +217,7 @@ public class Util {
         return remainingHours;
     }
 
-    public static void setBadgeCount(Context context, LayerDrawable icon, String count) {
+    public static void setBadgeCount(Context context, LayerDrawable icon, Integer count) {
         BagdeDrawable badge;
 
         // Reuse drawable if possible
@@ -227,8 +228,24 @@ public class Util {
             badge = new BagdeDrawable(context);
         }
 
-        badge.setCount(count);
+        badge.setCount(count.toString());
         icon.mutate();
         icon.setDrawableByLayerId(R.id.ic_badge, badge);
+    }
+
+    private static synchronized void updateNotificationCount(boolean isIncrement) {
+        if (isIncrement)
+            BaseActivity.notificationCnt++;
+        else
+            BaseActivity.notificationCnt = 0;
+        BaseActivity.setNotificationCount();
+    }
+
+    public static void incrementNotificationCount() {
+        updateNotificationCount(true);
+    }
+
+    public static void resetNotificationCount() {
+        updateNotificationCount(false);
     }
 }

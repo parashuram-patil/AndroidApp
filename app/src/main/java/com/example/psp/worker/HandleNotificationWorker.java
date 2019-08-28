@@ -1,20 +1,13 @@
 package com.example.psp.worker;
 
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.work.Data;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
-import com.example.psp.R;
 import com.example.psp.constants.Constants;
-import com.example.psp.room.db.DatabaseClient;
 import com.example.psp.room.entity.NotificationEntity;
 import com.example.psp.util.Util;
 
@@ -36,7 +29,7 @@ public class HandleNotificationWorker extends Worker {
 
         Util.saveNotification(entity, context);
         Util.sendNotification(entity, context, clazz);
-
+        Util.incrementNotificationCount();
         Log.d(Constants.TAG_HANDLE_NOTIFICATION_WORKER, "Handled notification : " + entity.getNotificationId());
         return Result.success();
     }

@@ -1,5 +1,6 @@
 package com.example.psp.base;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
@@ -27,6 +28,10 @@ import java.util.ArrayList;
 
 public class BaseActivity extends AppCompatActivity {
 
+    public static Integer notificationCnt = 0;
+    public static Menu menu;
+    private static Context context;
+
     ListView listView;
     RelativeLayout mDrawerPane;
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -38,6 +43,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_base);
         //populateDrawerItems();
+        context = this;
     }
 
 
@@ -111,9 +117,9 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.navitgation_menu, menu);
-        MenuItem itemCart = menu.findItem(R.id.notificationIcon);
-        LayerDrawable icon = (LayerDrawable) itemCart.getIcon();
-        Util.setBadgeCount(this, icon, "999");
+        this.menu = menu;
+        context = this;
+        setNotificationCount();
         return true;
     }
 
@@ -125,5 +131,11 @@ public class BaseActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    public static void setNotificationCount() {
+        MenuItem itemCart = menu.findItem(R.id.notificationIcon);
+        LayerDrawable icon = (LayerDrawable) itemCart.getIcon();
+        Util.setBadgeCount(context, icon, notificationCnt);
     }
 }

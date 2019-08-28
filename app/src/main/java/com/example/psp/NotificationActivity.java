@@ -2,7 +2,6 @@ package com.example.psp;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +27,8 @@ public class NotificationActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
         setTitle(Constants.TITLE_NOTIFICATION);
+
+        Util.resetNotificationCount();
 
         ListView listView = findViewById(R.id.notificationList);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
