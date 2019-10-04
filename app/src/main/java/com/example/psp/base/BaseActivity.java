@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -31,6 +32,7 @@ public class BaseActivity extends AppCompatActivity {
     public static Integer notificationCnt = 0;
     public static Menu menu;
     private static Context context;
+    protected static BaseActivity _this;
 
     ListView listView;
     RelativeLayout mDrawerPane;
@@ -44,6 +46,7 @@ public class BaseActivity extends AppCompatActivity {
         //setContentView(R.layout.activity_base);
         //populateDrawerItems();
         context = this;
+        _this = this;
     }
 
 
@@ -125,7 +128,7 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.notificationIcon) {
+        if (item.getItemId() == R.id.notificationIcon) {
             final Intent configurationIntent = new Intent(this, NotificationActivity.class);
             startActivity(configurationIntent);
         }
@@ -135,7 +138,27 @@ public class BaseActivity extends AppCompatActivity {
 
     public static void setNotificationCount() {
         MenuItem itemCart = menu.findItem(R.id.notificationIcon);
+        _this.setNotificationCountOnUiThread(itemCart);
+        /*if(notificationCnt > 0)
+            itemCart.setIcon(R.drawable.ic_menu_notification_filled);
+        else
+            itemCart.setIcon(R.drawable.ic_menu_notification_empty);
+
         LayerDrawable icon = (LayerDrawable) itemCart.getIcon();
-        Util.setBadgeCount(context, icon, notificationCnt);
+        Util.setBadgeCount(context, icon, notificationCnt);*/
+    }
+
+    private void setNotificationCountOnUiThread(MenuItem itemCart) {
+
+        runOnUiThread(() -> {
+            if (notificationCnt > 0)
+                itemCart.setIcon(R.drawable.ic_menu_notification_filled);
+            else
+                itemCart.setIcon(R.drawable.ic_menu_notification_empty);
+
+            LayerDrawable icon = (LayerDrawable) itemCart.getIcon();
+            Util.setBadgeCount(context, icon, notificationCnt);
+
+        });
     }
 }
