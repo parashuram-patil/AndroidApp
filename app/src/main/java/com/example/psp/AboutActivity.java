@@ -16,10 +16,10 @@ public class AboutActivity extends BaseActivity {
         setContentView(R.layout.activity_about);
         setTitle(Constants.TITLE_ABOUT);
 
-        TextView versionInfo =  findViewById(R.id.versionInfo);
+        TextView versionInfo = findViewById(R.id.versionInfo);
         versionInfo.setText("Version " + BuildConfig.VERSION_NAME);
 
-        TextView textView =(TextView)findViewById(R.id.licence);
+        TextView textView = findViewById(R.id.licence);
         textView.setClickable(true);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
         String url = "https://github.com/parshuram-patil/AndroidApp/blob/master/README.md";
