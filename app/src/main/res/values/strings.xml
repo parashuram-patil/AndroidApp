@@ -57,5 +57,6 @@
     <string name="onboarding_step_2">Step 2</string>
     <string name="onBoardingStepHeader">Onboarding</string>
     <string name="onBoardingStepDescription">You are in step 1\nThis is one time activity.</string>
+    <string name="more_information">More Information</string>
 
 </resources>

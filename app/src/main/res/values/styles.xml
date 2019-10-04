@@ -35,4 +35,25 @@
         <item name="android:textSize">20dp</item>
     </style>
 
+    <style name="appInfoNameStyle" >
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">35dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_vertical|end</item>
+    </style>
+
+    <style name="appInfoVersionStyle" >
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_vertical|end</item>
+    </style>
+
+    <style name="textHyperLinkStyle" >
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_vertical|end</item>
+    </style>
+
 </resources>
