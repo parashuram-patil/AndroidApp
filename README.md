@@ -1,4 +1,4 @@
-# AndroidApp
+# AndroidApp[![CircleCI](https://circleci.com/gh/gladed/gradle-android-git-version/tree/master.svg?style=svg)]
 >### Getting hands dirty with Android Application Development
 
 ## Features
