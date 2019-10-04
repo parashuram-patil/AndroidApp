@@ -1,5 +1,7 @@
-//noinspection GradleCompatible
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'com.gladed.androidgitversion' version '0.4.10'
+}
 
 android {
     compileSdkVersion 28
@@ -8,8 +10,8 @@ android {
         applicationId "com.example.psp"
         minSdkVersion 28
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode androidGitVersion.code()
+        versionName androidGitVersion.name()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         javaCompileOptions {
