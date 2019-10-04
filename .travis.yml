@@ -1,11 +1,12 @@
 language: android
 jdk: oraclejdk8
-components:
-  - tools
-    - platform-tools
-    - build-tools-$ANDROID_BUILD_TOOLS
-    - android-$ANDROID_API
-    - android-$EMULATOR_API_LEVEL
+android:
+  components:
+    - tools
+      - platform-tools
+      - build-tools-$ANDROID_BUILD_TOOLS
+      - android-$ANDROID_API
+      - android-$EMULATOR_API_LEVEL
 before_install:
   - chmod +x gradlew
 before_cache:
@@ -17,7 +18,7 @@ cache:
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
 script:
-  - ./gradlew connectedCheck
+  - ./gradlew clean connectedCheck
 licenses:
   - android-sdk-preview-license-.+
   - android-sdk-license-.+
