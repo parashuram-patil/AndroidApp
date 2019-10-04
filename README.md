@@ -6,7 +6,7 @@
 ### App Links
 ### AndroidX Migration using Studio
 ### Firebase Integration
- >#### Push Notification
+>#### Push Notification
 
   ```
   Pushing Notification to specific device
@@ -50,7 +50,7 @@
   <Your:Server:Key> can be found on Firbase console <br /> 
   <Your:Topic:Name> Name of topic where message will be pulished
   ```
-
+>#### Toggel Notification icon
 ### Custom View Pager
 ### Splash Screens with Animation
   >* Ontime
@@ -60,3 +60,4 @@
 ### Work Manager and Async Tasks
   >* Ontime
   >* Scheduled(Unique)
+### Git integration for app Versioning
