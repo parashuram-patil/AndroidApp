@@ -14,7 +14,7 @@ before_install:
   - chmod +x gradlew
   - yes | sdkmanager "platforms;android-28"
   - yes | sdkmanager "build-tools;29.0.0"
-  - openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in $TRAVIS_BUILD_DIR/app/google-services.json.enc -out $TRAVIS_BUILD_DIR/app/google-services.json -d
+  - openssl aes-256-cbc -K $encrypted_fe7a97cc8449_key -iv $encrypted_fe7a97cc8449_iv -in $TRAVIS_BUILD_DIR/app/google-services.json.enc -out $TRAVIS_BUILD_DIR/app/google-services.json -d
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
