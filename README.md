@@ -1,4 +1,4 @@
-# AndroidApp[![Build Status](https://travis-ci.org/parshuram-patil/AndroidApp.svg?branch=master)](https://travis-ci.org/parshuram-patil/AndroidApp)
+# AndroidApp [![Build Status](https://travis-ci.org/parshuram-patil/AndroidApp.svg?branch=master)](https://travis-ci.org/parshuram-patil/AndroidApp)
 >### Getting hands dirty with Android Application Development
 
 ## Features
