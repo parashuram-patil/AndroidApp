@@ -18,3 +18,7 @@ cache:
     - $HOME/.android/build-cache
 script:
   - ./gradlew clean connectedCheck
+licenses:
+  - android-sdk-preview-license-.+
+  - android-sdk-license-.+
+  - google-gdk-license-.+
