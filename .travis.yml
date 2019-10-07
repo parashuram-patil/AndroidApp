@@ -6,9 +6,10 @@ android:
     - platform-tools
     - build-tools-$ANDROID_BUILD_TOOLS
     - android-$ANDROID_API
-    - extra-android-m2repository
-    - extra-android-m2repository # for design library
-    - addon-google_apis-google-19 # google play services
+  licenses:
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 before_install:
   - chmod +x gradlew
 before_cache:
