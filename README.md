@@ -1,4 +1,4 @@
-# AndroidApp [![Build Status](https://travis-ci.org/parshuram-patil/AndroidApp.svg?branch=master)](https://travis-ci.org/parshuram-patil/AndroidApp)
+# AndroidApp [![CircleCI](https://circleci.com/gh/gladed/gradle-android-git-version/tree/master.svg?style=svg)]
 >### Getting hands dirty with Android Application Development
 
 ## Features
