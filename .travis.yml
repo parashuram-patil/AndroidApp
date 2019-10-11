@@ -11,7 +11,9 @@ android:
     - platform-tools
     - build-tools-$ANDROID_BUILD_TOOLS
     - android-$ANDROID_API
-    - system-images;android-$ANDROID_API;default;$ANDROID_ABI
+    #- system-images;android-$ANDROID_API;default;$ANDROID_ABI
+    #- sys-img-x86-android-23
+    - sys-img-$ANDROID_ABI-ANDROID_TARGET
   licenses:
     - android-sdk-preview-license-.+
     - android-sdk-license-.+
