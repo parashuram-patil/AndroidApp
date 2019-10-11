@@ -24,8 +24,8 @@ before_install:
   - yes | sdkmanager "build-tools;29.0.0"
 before_script:
   - sdkmanager tools
-  - sdkmanager "system-images;android-27;google_apis;x86"
-  - echo no | avdmanager create avd --force -n test -k "system-images;android-27;google_apis;x86" -c 10M
+  - sdkmanager "system-images;android-24;google_apis;x86"
+  - echo no | avdmanager create avd --force -n test -k "system-images;android-24;google_apis;x86" -c 10M
   - avdmanager list target
   - emulator -verbose -avd test -no-accel -no-snapshot -no-window $AUDIO -camera-back none -camera-front none -selinux permissive -qemu -m 2048 &
   - android-wait-for-emulator
