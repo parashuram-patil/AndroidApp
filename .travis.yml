@@ -22,7 +22,7 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_ffed81facfa0_key -iv $encrypted_ffed81facfa0_iv
     -in ./app/google-services.json.enc -out ./app/google-services.json -d
   - chmod +x gradlew
-  - yes | sdkmanager "platforms;android-$ANDROID_API"
+  - yes | sdkmanager "platforms;android-${ANDROID_API}"
   - yes | sdkmanager "build-tools;29.0.0"
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -33,7 +33,8 @@ cache:
     - "$HOME/.gradle/wrapper/"
     - "$HOME/.android/build-cache"
 before_script:
-  - android list targets
+  #- echo "Android API : ${ANDROID_API} \t Build Tool : ${ANDROID_BUILD_TOOLS}"
+  - echo android list targets
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
