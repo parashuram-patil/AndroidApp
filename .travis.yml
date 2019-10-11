@@ -1,12 +1,17 @@
 language: android
 jdk: oraclejdk8
+env:
+  global:
+    - ADB_INSTALL_TIMEOUT=8
+  matrix:
+    - ANDROID_TARGET=android-$ANDROID_API ANDROID_ABI=x86_64
 android:
   components:
     - tools
     - platform-tools
     - build-tools-$ANDROID_BUILD_TOOLS
     - android-$ANDROID_API
-    - sys-img-x86-android-28
+    - system-images;android-$ANDROID_API;default;$ANDROID_ABI
   licenses:
     - android-sdk-preview-license-.+
     - android-sdk-license-.+
@@ -26,7 +31,7 @@ cache:
     - "$HOME/.gradle/wrapper/"
     - "$HOME/.android/build-cache"
 before_script:
-  - echo no | android create avd --force -n test -t android-28 --abi x86_64
+  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
