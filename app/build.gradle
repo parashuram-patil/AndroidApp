@@ -10,7 +10,12 @@ android {
         applicationId "com.example.psp"
         minSdkVersion 28
         targetSdkVersion 28
-        versionCode androidGitVersion.code()
+        if (androidGitVersion.code() == 0) {
+            versionCode = 1
+        }
+        else {
+            versionCode androidGitVersion.code()
+        }
         versionName androidGitVersion.name()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
