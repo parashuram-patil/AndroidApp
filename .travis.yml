@@ -50,7 +50,20 @@ before_script:
   - ./gradlew clean
 
 script:
-  - ./gradlew build connectedCheck
+  # See http://stackoverflow.com/questions/21294945/error-unable-to-find-instrumentation-info-for-componentinfo
+  # Instead of this (which doesn't give any output during tests execution):
+  # - ./gradlew connectedCheck -PdisablePreDex --continue --stacktrace --debug
+  # run:
+  - |
+    ./gradlew :app:installDebug :app:installDebugAndroidTest -PtestCoverageEnabled='true'
+    retval=$?
+    if [ $retval -ne 0 ]; then
+      echo "error on install, exit code: "$retval
+      exit $retval
+    fi
+  - ./gradlew build
+  #- ./gradlew assembleRelease
+  #- ./gradlew connectedCheck
   - cd ../..
 
 notifications:
