@@ -4,6 +4,8 @@ jdk:
 env:
   global:
     - EMULATOR_API=24
+    - ANDROID_API=28
+    - ANDROID_BUILD_TOOLS=29.0.0
 android:
   components:
     - tools
@@ -105,7 +107,7 @@ before_install:
     -out ./app/google-services.json
     -d
   - chmod +x gradlew
-  - yes | sdkmanager "platforms;android-28"
-  - yes | sdkmanager "build-tools;29.0.0"
+  - yes | sdkmanager "platforms;android-$ANDROID_API"
+  - yes | sdkmanager "build-tools;$ANDROID_BUILD_TOOLS"
 after_success:
   - ./gradlew sonarqube -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN -Dsonar.verbose=true
