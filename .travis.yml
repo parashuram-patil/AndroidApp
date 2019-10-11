@@ -5,6 +5,7 @@ android:
   components:
     - build-tools-$ANDROID_BUILD_TOOLS
     - android-$ANDROID_API
+    - sys-img-x86-google_apis-27
   licenses:
     - android-sdk-preview-license-.+
     - android-sdk-license-.+
