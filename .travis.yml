@@ -4,6 +4,12 @@ jdk: oraclejdk8
 env:
   global:
     - ADB_INSTALL_TIMEOUT=8
+    - ABI=x86_64
+    - EMU_FLAVOR=default
+  matrix:
+    #- API=18 ABI=armeabi-v7a
+    - API=24
+    #- API=25
 android:
   components:
     - build-tools-$ANDROID_BUILD_TOOLS
@@ -12,6 +18,8 @@ android:
     - android-sdk-preview-license-.+
     - android-sdk-license-.+
     - google-gdk-license-.+
+jobs:
+  fast_finish: true
 before_install:
   - touch $HOME/.android/repositories.cfg
   - openssl aes-256-cbc
@@ -24,8 +32,8 @@ before_install:
   - yes | sdkmanager "build-tools;29.0.0"
 before_script:
   - sdkmanager tools
-  - sdkmanager "system-images;android-24;google_apis;x86"
-  - echo no | avdmanager create avd --force -n test -k "system-images;android-24;google_apis;x86" -c 10M
+  - echo y | sdkmanager "system-images;android-$API;$EMU_FLAVOR;$ABI"
+  - echo no | avdmanager create avd --force -n test -k "system-images;android-$API;$EMU_FLAVOR;$ABI" -c 10M
   - avdmanager list target
   - emulator -verbose -avd test -no-accel -no-snapshot -no-window $AUDIO -camera-back none -camera-front none -selinux permissive -qemu -m 2048 &
   - android-wait-for-emulator
