@@ -50,6 +50,13 @@ before_script:
   - ./gradlew clean
 
 script:
+  - |
+    ./gradlew build assembleAndroidTest -PtestCoverageEnabled='true'
+    retval=$?
+    if [ $retval -ne 0 ]; then
+      echo "error on assembling, exit code: "$retval
+      exit $retval
+    fi
   # See http://stackoverflow.com/questions/21294945/error-unable-to-find-instrumentation-info-for-componentinfo
   # Instead of this (which doesn't give any output during tests execution):
   # - ./gradlew connectedCheck -PdisablePreDex --continue --stacktrace --debug
