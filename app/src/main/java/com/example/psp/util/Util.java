@@ -215,7 +215,10 @@ public class Util {
     }
 
     public static int getRemainingHoursUntilMidnight() {
-        int remainingHours = 23 - LocalTime.now().getHour() + 1;
+        int remainingHours = 0;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            remainingHours = 23 - LocalTime.now().getHour() + 1;
+        }
 
         return remainingHours;
     }
