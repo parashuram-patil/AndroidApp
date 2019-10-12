@@ -8,7 +8,7 @@ android {
     buildToolsVersion "29.0.0"
     defaultConfig {
         applicationId "com.example.psp"
-        minSdkVersion 28
+        minSdkVersion 24
         targetSdkVersion 28
         if (androidGitVersion.code() == 0) {
             versionCode = 1
