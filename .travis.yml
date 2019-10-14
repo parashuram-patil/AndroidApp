@@ -3,6 +3,7 @@ jdk:
   - oraclejdk8
 env:
   global:
+    - EMULATOR_API=24
     - ANDROID_API=28
     - ANDROID_BUILD_TOOLS=29.0.0
   matrix:
